@@ -3,21 +3,19 @@ package com.aazizdev.resourcehub.entity;
 import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
-
-import javax.management.relation.Role;
 import java.time.Instant;
 import java.util.UUID;
 
 @Entity
 @Table(name = "users")
 
-public class AppUser {
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
 
     @Column(name = "user_id")
-    private UUID userId;
+    private UUID user;
 
     @Column(name = "admin_id")
     private UUID adminId;
@@ -45,16 +43,20 @@ public class AppUser {
     @Column(name = "updated_at")
     private Instant updatedAt;
 
+    @Column(name = "joinedDate")
+    private Instant joinedDate;
 
-    public  AppUser() {
+
+
+    public User() {
     }
 
     //set and get userId
-    public void setUserId(UUID userId){
-        this.userId = userId;
+    public void setUser(UUID user){
+        this.user = user;
     }
-    public UUID getUserId(){
-        return userId;
+    public UUID getUser(){
+        return user;
     }
 
     //set and get adminId
@@ -115,8 +117,13 @@ public class AppUser {
         return updatedAt;
     }
 
-
-
+    //set and get joined date
+    public void setJoinedDate(Instant joinedDate){
+        this.joinedDate = joinedDate;
+    }
+    public Instant getJoinedDate(){
+        return joinedDate;
+    }
 
 
 
